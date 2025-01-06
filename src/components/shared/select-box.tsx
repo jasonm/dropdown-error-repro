@@ -218,14 +218,22 @@ export { SelectBox };
 import { useState } from "react";
 
 export function SelectBoxUsage() {
-  const [value, setValue] = useState<string[]>(["option-1"]);
+  const [value, setValue] = useState<string[]>([]);
 
   return (
-    <SelectBox
-      options={[{ label: "Option 1", value: "option-1" }]}
-      value={value}
-      onChange={(v) => setValue(v as string[])}
-      multiple
-    />
+    <div className="min-h-screen">
+      <div className="flex justify-between items-center">
+        <div className="mb-6 p-4 border rounded bg-gray-50">
+          <div className="grid grid-cols-1 gap-4">
+            <SelectBox
+              options={[{ label: "Option 1", value: "option-1" }]}
+              value={value}
+              onChange={(v) => setValue(v as string[])}
+              multiple
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
